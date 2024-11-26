@@ -33,6 +33,22 @@ const port = process.env.PORT || '3000'
 // })
 
 // an array of callback
+// const cb1 = (req, res, next) => {
+//     console.log('first callback')
+//     next()
+// }
+// const cb2 = (req, res, next) => {
+//     console.log('second callback')
+//     next()
+// }
+// const cb3 = (req, res) => {
+//     console.log('third callback')
+//     res.send('an array of callback example')
+// }
+// app.get('/callbeg', [cb1, cb2, cb3])
+
+
+// combination of independent fn. and array of fn.
 const cb1 = (req, res, next) => {
     console.log('first callback')
     next()
@@ -41,11 +57,15 @@ const cb2 = (req, res, next) => {
     console.log('second callback')
     next()
 }
-const cb3 = (req, res) => {
+app.get('/callbegone', [cb1, cb2], (req, res, next) => {
     console.log('third callback')
-    res.send('an array of callback example')
+    next()
+}, (req, res) => {
+    console.log('fourth callback')
+    res.send('combination of independent fn. and array of fn.')
 }
-app.get('/callbeg', [cb1, cb2, cb3])
+
+)
 
 
 app.listen(port, () => {
