@@ -6,8 +6,14 @@ const app = express()
 
 const port = process.env.PORT || '3000'
 
-app.get('/student/delete/:id', (req,res) => {
-    res.send('student deleted')
+// app.get('/student/delete/:id', (req,res) => {
+//     console.log(req.params)
+//     res.send('student deleted')
+// })
+
+app.get('/product/:category/:id', (req,res) => {
+    console.log(req.params)
+    res.send(`Product category: ${req.params.category} and product id: ${req.params.id}`)
 })
 
 app.listen(port, () => {
