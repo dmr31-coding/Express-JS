@@ -33,14 +33,32 @@ const port = process.env.PORT || '3000'
 // })
 
 
-// app.param()
-app.param('id', (req, res, next, id) => {
-    console.log(` called only once Id: ${id}`)
+// // app.param()
+// app.param('id', (req, res, next, id) => {
+//     console.log(` called only once Id: ${id}`)
+//     next()
+// })
+
+// app.get(`/user/:id`, (req, res) => {
+//     console.log("this is user id path")
+//     res.send('Response correct')
+// })
+
+
+// app.param() -> array of route parameter
+app.param(['id', 'page'], (req, res, next, value) => {
+    console.log(` called only once: ${value}`)
+    //above callback execute only once for its route para. but not for other similar path
     next()
 })
 
-app.get(`/user/:id`, (req, res) => {
-    console.log("this is user id path")
+app.get('/user/:id/:page', (req, res, next) => {
+    console.log("this is user id path 1")
+    next()
+})
+
+app.get('/user/:id/:page', (req, res) => {
+    console.log("this is user id path 2")
     res.send('Response correct')
 })
 
