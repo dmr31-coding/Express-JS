@@ -22,12 +22,27 @@ const port = process.env.PORT || '3000'
 // })
 
 // query parameter restriction with regx
-app.get('/student/delete/:id([0-9]{2})', (req,res) => {
-    console.log(req.params)
-    res.send('student deleted ${req.params.id}')
+// app.get('/student/delete/:id([0-9]{2})', (req,res) => {
+//     console.log(req.params)
+//     res.send(`student deleted ${req.params.id}`)
+// })
+
+// app.get('/:type(post|article)/:id', (req,res) => {
+//     console.log(req.params)
+//     res.send('post or article')
+// })
+
+
+// app.param()
+app.param('id', (req, res, next, id) => {
+    console.log(` called only once Id: ${id}`)
+    next()
 })
 
-
+app.get(`/user/:id`, (req, res) => {
+    console.log("this is user id path")
+    res.send('Response correct')
+})
 
 
 app.listen(port, () => {
