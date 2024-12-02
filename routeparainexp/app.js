@@ -46,22 +46,29 @@ const port = process.env.PORT || '3000'
 
 
 // app.param() -> array of route parameter
-app.param(['id', 'page'], (req, res, next, value) => {
-    console.log(` called only once: ${value}`)
-    //above callback execute only once for its route para. but not for other similar path
-    next()
-})
+// app.param(['id', 'page'], (req, res, next, value) => {
+//     console.log(` called only once: ${value}`)
+//     //above callback execute only once for its route para. but not for other similar path
+//     next()
+// })
 
-app.get('/user/:id/:page', (req, res, next) => {
-    console.log("this is user id path 1")
-    next()
-})
+// app.get('/user/:id/:page', (req, res, next) => {
+//     console.log("this is user id path 1")
+//     next()
+// })
 
-app.get('/user/:id/:page', (req, res) => {
-    console.log("this is user id path 2")
-    res.send('Response correct')
-})
+// app.get('/user/:id/:page', (req, res) => {
+//     console.log("this is user id path 2")
+//     res.send('Response correct')
+// })
 
+
+//query string
+app.get('/product', (req, res) => {
+    console.log(req.query)
+    const {category, id} = req.query
+    res.send(`Response OK ${category} and ${id}`)
+})
 
 app.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}`)
