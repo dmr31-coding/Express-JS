@@ -22,6 +22,9 @@ app.get('/student/delete/:id([0-9]{2})', (req, res) => {
     }
 })
 
+// controller ko kam code separate garna ko lagi ho code messy nahos vanera 
+// project banauda routes folder banaune routing ko lagi ani export/import garne
+
 app.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}`)
 })
