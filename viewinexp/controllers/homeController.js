@@ -1,9 +1,10 @@
-
+import { join } from 'path'
 
 const homeController = (req, res) => {
     // res.send('Home page')
 
-    res.sendFile(jo)
+    console.log(join(process.cwd(), 'views', 'index.html'))
+    res.sendFile(join(process.cwd(), 'views', 'index.html'))
 }
 
 export { homeController }
