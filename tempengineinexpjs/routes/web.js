@@ -1,4 +1,14 @@
 import express from 'express'
 
 const router = express.Router()
-import { home}
+
+import { homeController } from '../controllers/homeConteoller.js'
+import { aboutController } from '../controllers/aboutController.js'
+
+
+
+router.get('/', homeController)
+router.get('/about', aboutController)
+
+
+export default router
