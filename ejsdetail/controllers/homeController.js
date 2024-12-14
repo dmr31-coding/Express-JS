@@ -1,5 +1,9 @@
 const homeController = (req, res) => {
-    res.render('index')
+
+    const data = {
+        'name': 'Ram'
+    }
+    res.render('index', data)
 }
 
 export { homeController }

@@ -6,6 +6,24 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>home page</h1>
+    <h1>ejs template engine</h1>
+
+    <h3>
+
+        <!-- creating variable -->
+        <% var j = 20; %>
+
+        <!-- displaying variable -->
+        <%= j %>
+
+        <!-- comment in ejs -->
+        <%# ejs comment will not be present in rendered html %>
+
+        <!-- if -->
+        <% if(name) { %>
+        hey <%= name %>
+        <% } %>
+
+    </h3>
 </body>
 </html>
