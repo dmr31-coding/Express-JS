@@ -54,10 +54,28 @@
         <% } %>
 
         <!-- for in loop -->
-        <% for (const key in marks) { %>
+        <!-- <% for (const key in marks) { %>
         <%= key %>
         <%= marks[key] %>
+        <% } %> -->
+
+        <!-- for of loop -->
+        <!-- <% for (const mark of marks) { %>
+            <%= mark %>
+        <% } %> -->
+
+        <!-- while loop -->
+         <% var i=0; %>
+        <% while(i<=4) { %>
+            <%= i %>
+            <%= marks[i] %>
+            <% i++ %>
         <% } %>
+
+        <!-- forEach loop -->
+         <% marks.forEach((vlalue) => { %> 
+            <%= vlalue %>
+        <% }) %>
     </h3>
 </body>
 </html>
