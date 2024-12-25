@@ -11,7 +11,9 @@ import web from './routes/web.js'
 import underConstruction from './middlewares/uc-middleware.js'
 
 // app. level middleware
-app.use(underConstruction)
+// app.use(underConstruction)
+app.use('/about', underConstruction)
+
 
 //set temp engine
 app.set('view engine', 'ejs')
