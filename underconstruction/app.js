@@ -8,6 +8,11 @@ const port = process.env.PORT || '3000'
 
 import web from './routes/web.js'
 
+import underConstruction from './middlewares/uc-middleware.js'
+
+// app. level middleware
+app.use(underConstruction)
+
 //set temp engine
 app.set('view engine', 'ejs')
 
