@@ -12,7 +12,7 @@ import connectDB from './db1/connectdb1.js'
 //     console.log("connected successfully...")
 // })
 
-const DATABASE_URL = "mangodb://localhost:27017/test"
+const DATABASE_URL = process.env.DATABASE_URL || "mangodb://localhost:27017/test"
 
 connectDB(DATABASE_URL)
 
